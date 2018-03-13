@@ -32,6 +32,17 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'app1',
+    'userapp',
+    'chatapp',
+    'commentapp',
+    'diaryapp',
+    'diarydealapp',
+    'feedbackapp',
+    'moreapp',
+    'mycaidanapp',
+    'qunapp',
+    'tongzhiapp',
+    'versionapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -52,6 +52,6 @@ def getqunInfouserid(userid):
     return list
 
 #查找群主
-def getqunzhuInfouserqun(userstate,qunid):
-    list = Userqun.objects.filter(userstate=userstate,qunid=qunid)
+def getqunzhuInfouserqun(userqun):
+    list = Userqun.objects.filter(userstate=userqun.userstate,qunid=userqun.qunid)
     return list

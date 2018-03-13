@@ -15,8 +15,8 @@ def queryCommentnumByDiaryId(diaryid):
     count = Comment.objects.filter(diaryid=diaryid).count()
 
 #通过 日志id查询对应的
-def queryCommentlisetByDiaryId(diaryid,start,pagesize):
-    fenyecomment = Comment.objects.order_by('-id').filter(diaryid=diaryid)[start:start+pagesize]
+def queryCommentlisetByDiaryId(page):
+    fenyecomment = Comment.objects.order_by('-id').filter(diaryid=page.diaryid)[page.start:page.start+page.pagesize]
 
 #通过评论id查询对应的评论
 def queryCommentById(id):

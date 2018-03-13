@@ -303,7 +303,35 @@ class Result():
         self.result = None
         self.msg = None
 
-
+class PageForId():
+    def __init__(self):
+        self.id = 0
+        self.pageNo=1
+        self.pageSize = 5
+        self.totalPage = 0
+        self.start = 0
+        self.userid = 0
+        self.diaryid = 0
+        self.diaryidnew = 0
+        self.send_id = 0
+        self.receive_id = 0
+        self.qunid = 0
+        self.qunusetype = 0
+        self.messagetype = 0
+        self.contenttype = 0
+        self.deal = 0
+        self.state = 0
+        self.date = ''
+        self.qundiarytype = ''
+        self.abid = ''
+        self.filtertype = 0
+        self.field = ''
+        self.keystr1 = ''
+        self.keystr2 = ''
+        self.filter1 = 0
+        self.filter2 = ''
+        self.filter3 = 0
+        self.fukuanfangshi = ''
 
 
 

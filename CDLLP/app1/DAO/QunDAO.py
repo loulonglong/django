@@ -34,8 +34,8 @@ def getqunInfoaddress(qun):
     return list
 
 #根据省、市、名称、区别点查询群
-def getqunInfoAB(aname,bname,ab):
-    list = Qun.objects.filter(aname=aname,bname=bname,ab=ab)
+def getqunInfoAB(qun):
+    list = Qun.objects.filter(aname=qun.aname,bname=qun.bname,ab=qun.ab)
 
 #根据代理商省份查询所有货款
 def getallqunInfoa(aname):
@@ -58,14 +58,16 @@ def selectallqun(start,pagesize):
     return list
 
 #查询某人指定类型的群 安照分页
-def getqunforuserqunuse(qun,userqun,start,pagesize):
-    list = Qun.objects.order_by('-id').filter(qunusetype=qun.qunusetype,id_in=userqun.objects.filter(userid=userqun.userid).values('qunid'))[start:start+pagesize]
+def getqunforuserqunuse(page):
+    list = Qun.objects.order_by('-id').filter(qunusetype=page.qunusetype,id_in=Userqun.objects.filter(userid=page.userid).values('qunid'))[page.start:page.start+page.pagesize]
     return list
 
 #查询指定类型的群 安照分页
 def getqunforqunuse(qunusetype,start,pagesize):
     list = Qun.objects.order_by('-id').filter(qunusetype=qunusetype)[start:start+pagesize]
 
+def selectfilterqun(page):
+    print()
 '''
 <!-- 筛选群组 -->
 	<select id="selectfilterqun" parameterType="com.lp.app.entity.PageForId" resultType="com.lp.app.entity.Qun">

@@ -42,17 +42,17 @@ def selectmorelistInfomore(more):
     return list
 
 #根据deal  查询more列表条数
-def selectmorelistnumInfopage(userid_source,deal):
-    count = More.objects.filter(userid_source=userid_source,deal=deal).count()
+def selectmorelistnumInfopage(page):
+    count = More.objects.filter(userid_source=page.userid,deal=page.deal).count()
     return count
 
 #根据deal  查询more列表
-def selectmorelistInfopage(more,start,pagesize):
-    list = More.objects.order_by('-id').filter(userid_source=more.userid_source,deal=more.deal)[start:start+pagesize]
+def selectmorelistInfopage(page):
+    list = More.objects.order_by('-id').filter(userid_source=page.userid,deal=page.deal)[page.start:page.start+page.pagesize]
     return list
 
 #查询指定用户所有不想看到的群组和用户
-def selectmorelisthate(userid_source,deal):
+def selectmorelisthate(userid_source):
     list = More.objects.filter(userid_source=userid_source,deal_in=(12,22))
     return list
 
