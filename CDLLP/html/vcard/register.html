@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>注册</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="register_fun.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+
+</head>
+<body onload="registerinit()" >
+
+<div data-role="page">
+
+<!--    <div data-role="header" data-position="fixed"  data-theme="a">
+        <h1>注册</h1>
+    </div>&lt;!&ndash; /header &ndash;&gt;-->
+
+    <div role="main" class="ui-content">
+        <br><br>
+        <div style="text-align: center">
+        <form id="file_upload_form" action="" method="post" enctype="multipart/form-data">
+            <input data-role="none" onchange="readFile()" id="pic_file" type="file" name="file" style="display:none">
+            <img src="images/someone_head.png" style="width:100px;height: 100px;margin-top: -30px;border-radius:550px" id="pic_path"  onclick="javascript:document.getElementById('pic_file').click();">
+            <label>点击添加方形头像</label>
+        </form>
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_name" style="color: #b94a48">姓名：</label>
+            <input type="text" placeholder="必填"  name="name" id="register_name" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_phone"  style="color: #b94a48">手机号码：</label>
+            <input type="text" placeholder="必填" name="name" id="register_phone" value=""  />
+        </div>
+        <!--密码-->
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_password"  style="color: #b94a48">登陆密码：</label>
+            <input type="text" placeholder="必填" name="name" id="register_password" value=""  />
+        </div>
+        <!--身份识别码-->
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_address_province">通讯地址（省）：</label>
+            <input type="text"  placeholder="选填"  name="name" id="register_address_province" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_address_shi">通讯地址（市）：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_address_shi" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_address_qu">通讯地址（区县）：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_address_qu" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_address_road">通讯地址（街道）：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_address_road" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_zip_code">邮政编码：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_zip_code" value=""  />
+        </div>
+
+
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_qq">QQ号码：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_qq" value=""  />
+        </div>
+        <!--身份识别码-->
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_email">电子邮件：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_email" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_wechat">微信号码：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_wechat" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_filed">从事行业：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_filed" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_company">公司/单位：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_company" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_section">公司部门：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_section" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_post">职位：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_post" value=""  />
+        </div>
+
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_url">个人网站：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_url" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_education">最高学历：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_education" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_benke_schools">本科学校：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_benke_schools" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_shuoshi_schools">硕士学校：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_shuoshi_schools" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_boshi_schools">博士学校：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_boshi_schools" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_skill">个人特长：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_skill" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="register_jianli">简历：</label>
+            <input type="text"  placeholder="选填" name="name" id="register_jianli" value=""  />
+        </div>
+
+        <br>
+    <div>
+        <a qunid="0" id="registr_button"  onclick="register_fun()" data-role="button" data-theme="b" style="margin-top: 5%">注册</a>
+        <a onclick="gotologin()" data-role="button" data-theme="a" style="margin-top: 5%">已有账号</a>
+    </div>
+
+    </div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+document.body.scrollLeft = document.body.scrollWidth;

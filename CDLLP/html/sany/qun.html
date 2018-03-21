@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>货款</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="qun_fun.js"></script>
+</head>
+<body onload="getquninf()">
+
+<div data-role="page">
+
+    <div data-role="header" data-position="fixed">
+        <!-- <a href="#" data-role="button">Back</a>-->
+        <h1>货款列表</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content" style="margin-top: -10px">
+
+        <ul data-role="listview" data-filter="true" data-filter-placeholder="搜索关键字"  data-inset="true"  id="allqun">
+            <!--<li><a href="#">
+                <img src="images/tubiao1.png" class="ui-li-thumb">
+                <h2>代理商名称</h2>
+                <p>货款部分可见信息</p>
+            </a></li>-->
+        </ul>
+
+    </div><!-- /content -->
+
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="goanother('qundiary.html')" data-icon="gear">汇款列表</a></li>
+                <li><a href="#" data-icon="refresh"  class="ui-btn-active ui-state-persist">货款列表</a></li>
+                <li><a onclick="goanother('tongzhi.html')" data-icon="check">通知</a></li>
+                <li><a onclick="goanother('setting.html')"  data-icon="check">设置</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- /page -->
+
+</body>
+</html>
+

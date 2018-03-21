@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>发布汇款</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="fabiao_fun.js"></script>
+</head>
+<body onload="fabiao_init()">
+
+<div data-role="page">
+
+    <div data-role="header" data-position="fixed"  data-theme="a">
+        <a onclick="goanother('qundiary.html')" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+        <a onclick="fabiaohuikuan()" data-role="button" class="ui-btn-right" data-theme="b">完成</a>
+        <h1>发布汇款</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+
+        <div class="ui-field-contain">
+            <label for="fabiao_ab">汇款合同：</label>
+            <select onchange="choose_qun(this)" name="select-native-1" id="fabiao_ab">
+                <option value="0">请选择...</option>
+            </select>
+        </div>
+        <div class="ui-field-contain">
+            <label for="fabiao_qundiarytype">付款方式：</label>
+            <select onchange="choose_quntype1(this)"  name="select-native-1" id="fabiao_qundiarytype">
+                <option>电汇</option>
+                <option>银行承兑汇票</option>
+                <option>商业承兑汇票</option>
+                <option>现金结算</option>
+                <option>其他</option>
+            </select>
+        </div>
+        <!--付款时间-->
+        <div data-role="fieldcontain">
+            <label for="huikuan_time">付款时间：</label>
+            <input type="date" name="name" id="huikuan_time" value=""  />
+
+        </div>
+
+        <!--付款金额-->
+        <div data-role="fieldcontain">
+            <label for="huikuan_money">付款金额：</label>
+            <input type="text" name="name" id="huikuan_money" value=""  />
+
+        </div>
+        <!--付款账户-->
+        <div data-role="fieldcontain">
+            <label for="huikuan_fukuanzhanghu">付款账户：</label>
+            <input type="text" name="name" id="huikuan_fukuanzhanghu" value=""  />
+        </div>
+        <!--收款人-->
+        <div data-role="fieldcontain">
+            <label for="huikuan_shoukuanren">收款人：</label>
+            <input type="text" name="name" id="huikuan_shoukuanren" value=""  />
+        </div>
+        <!--收款账户-->
+        <div data-role="fieldcontain">
+            <label for="huikuan_shoukuanzhanghu">收款账户：</label>
+            <input type="text" name="name" id="huikuan_shoukuanzhanghu" value=""  />
+        </div>
+
+
+        <!--图片区域-->
+
+        <!--   <form id="file_upload_form" action="" method="post" enctype="multipart/form-data">
+               <div class="ui-block-a"><div class="ui-bar" style="height: auto"><input id="pic1_file" onchange="readFile1()" type="file" style="width: 100%"></div></div>
+           </form>-->
+
+        <div class="ui-grid-b" id="alldiaryimg" style="margin-top: 2%">
+
+
+            <div class="ui-block-a">
+                <form id="file1_upload_form" action="" method="post" enctype="multipart/form-data">
+                    <input data-role="none" onchange="readFile1()" id="pic1_file" type="file" name="file" style="display:none">
+                    <img id="pic1_path" src="images/add.png" style="width: 90%" onclick="javascript:document.getElementById('pic1_file').click();">
+                </form>
+            </div>
+            <div class="ui-block-b">
+                <form id="file2_upload_form" action="" method="post" enctype="multipart/form-data">
+                    <input data-role="none" onchange="readFile2()" id="pic2_file" type="file" name="file"  style="display:none">
+                    <img id="pic2_path" src="images/add.png" style="width: 90%" onclick="javascript:document.getElementById('pic2_file').click();">
+                </form>
+            </div>
+            <div class="ui-block-c">
+                <form id="file3_upload_form" action="" method="post" enctype="multipart/form-data">
+                    <input data-role="none" onchange="readFile3()" id="pic3_file" type="file" name="file"  style="display:none">
+                    <img id="pic3_path" src="images/add.png" style="width: 90%" onclick="javascript:document.getElementById('pic3_file').click();">
+                </form>
+            </div>
+
+           <!-- <div class="ui-block-a"><div class="ui-bar" style="height: auto"><img id="pic1_path" src="images/add.png" style="width: 100%"></div></div>
+            <div class="ui-block-b"><div class="ui-bar" style="height: auto"><img id="pic2_path" src="images/add.png" style="width: 100%"></div></div>
+            <div class="ui-block-c"><div class="ui-bar" style="height: auto"><img id="pic3_path" src="images/add.png" style="width: 100%"></div></div>-->
+
+
+        </div>
+        <!--  <div class="ui-block-b"><div class="ui-bar" style="height: auto"><input id="pic2_file" onchange="readFile2()" type="file" style="width: 100%"></div></div>
+          < <div class="ui-block-c"><div class="ui-bar" style="height: auto"><input id="pic3_file" onchange="readFile3()" type="file" style="width: 100%"></div></div>
+           <div class="ui-block-a"><div class="ui-bar" style="height: auto"><img id="pic1_path" src="images/add.png" style="width: 100%"></div></div>
+           <div class="ui-block-b"><div class="ui-bar" style="height: auto"><img id="pic2_path" src="images/add.png" style="width: 100%"></div></div>
+           <div class="ui-block-c"><div class="ui-bar" style="height: auto"><img id="pic3_path" src="images/add.png" style="width: 100%"></div></div>-->
+
+
+    </div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

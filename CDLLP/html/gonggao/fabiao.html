@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>发布公告</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="fabiao_fun.js"></script>
+</head>
+<body onload="fabiao_init()">
+
+<div data-role="page" style="background-color: #ffffff">
+
+    <div data-role="header" data-position="fixed"  data-theme="a">
+       <!-- <a onclick="goanother('setting.html')" data-role="button" class="ui-btn-left" data-theme="b">返回</a>-->
+        <a onclick="fabiaobb()" data-role="button" class="ui-btn-right" data-theme="b" id="fabiao_button">发布</a>
+        <h1>发布公告</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content"  style="background-color: #ffffff">
+
+           <div>
+            <select id="choose_quntype" name="choose_quntype" data-shadow="false"  onchange="choose_quntype(this)">
+                <option value="0">选择版面</option>
+
+            </select>
+        </div>
+        <div data-role="fieldcontain" style="border: none">
+            <label for="diary_content">公告描述：</label>
+            <textarea name="textarea" id="diary_content" cols="20" rows="15" style="max-height: 300px"></textarea>
+          <!--  <input type="text" name="name" id="diary_content" value=""  />-->
+        </div>
+        <!--图片区域-->
+        <div class="ui-grid-b" id="alldiaryimg" style="margin-top: 2%">
+
+
+        <div id="img1_div" class="ui-block-a">
+            <form id="file1_upload_form" action="" method="post" enctype="multipart/form-data">
+                <input data-role="none" onchange="readFile1()" id="pic1_file" type="file" name="file" style="display:none">
+                <img id="pic1_path" src="images/add.png" style="width: 90%;height: 90%" onclick="javascript:document.getElementById('pic1_file').click();">
+            </form>
+        </div>
+        <div id="img2_div" class="ui-block-b">
+            <form id="file2_upload_form" action="" method="post" enctype="multipart/form-data">
+                <input data-role="none" onchange="readFile2()" id="pic2_file" type="file" name="file" style="display:none">
+                <img id="pic2_path" src="images/add.png" style="width: 90%;height: 90%" onclick="javascript:document.getElementById('pic2_file').click();">
+            </form>
+        </div>
+        <div id="img3_div" class="ui-block-c">
+            <form id="file3_upload_form" action="" method="post" enctype="multipart/form-data">
+                <input data-role="none" onchange="readFile3()" id="pic3_file" type="file" name="file" style="display:none">
+                <img id="pic3_path" src="images/add.png" style="width: 90%;height: 90%" onclick="javascript:document.getElementById('pic3_file').click();">
+            </form>
+        </div>
+    </div>
+
+
+    </div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>消息列表</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="tongzhi_fun.js"></script>
+    <!--p标签自动换行-->
+    <!--    <style type="text/css">
+            div{word-break: break-all;}
+            div p{word-break: break-all;}
+        </style>-->
+
+</head>
+<body onload="getmessageinf()">
+
+<div data-role="page">
+    <!--标题栏-->
+    <div data-role="header" data-position="fixed">
+        <h1>消息列表</h1>
+    </div>
+    <div role="main" class="ui-content"  style="margin-top: -10px">
+        <ul data-role="listview" data-inset="true" id="allmessage">
+            <!--<li  data-icon="false"><a href="#">
+                <h2>消息发送人：栾鹏</h2>
+                <p>请您尽快处理这个事情</p>
+                <p class="ui-li-aside">2016:1:24</p>
+            </a></li>
+            <li><a href="#">
+                <h2>消息发送人：栾鹏</h2>
+                <p>请您尽快处理这个事情</p>
+                <p class="ui-li-aside">2016:1:24</p>
+            </a></li>-->
+
+        </ul>
+
+    </div><!-- /content -->
+
+    <!--底部菜单栏-->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a  onclick="goanother('qundiary.html')" data-icon="home">汇款列表</a></li>
+                <li><a  onclick="goanother('qun.html')" data-icon="star">货款列表</a></li>
+                <li><a href="#" data-icon="alert"   class="ui-btn-active ui-state-persist">通知</a></li>
+                <li><a  onclick="goanother('setting.html')" data-icon="gear">设置</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- /page -->
+
+</body>
+</html>

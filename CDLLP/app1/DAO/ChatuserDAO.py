@@ -5,23 +5,30 @@ from django.db.models import Q
 def addchatuser(chatuser):
     userid = Chatuser.objects.create(usertype=chatuser.usertype,state=chatuser.state,send_id=chatuser.send_id,receive_id=chatuser.receive_id,
                                      abid=chatuser.abid,time=chatuser.time,date=chatuser.date,content=chatuser.content).id
+    return userid
 
 #根据用户id查询所有聊天用户是否存在
 #django中查询不等于得用~Q（A=B）
 def querychatuserexist(chatuser):
-    userlist = Chatuser.objects.filter(Q(receive_id=chatuser.receive_id)&Q(send_id=chatuser.send_id)&~Q(usertype=3))
+    list = Chatuser.objects.filter(Q(receive_id=chatuser.receive_id)&Q(send_id=chatuser.send_id)&~Q(usertype=3))
+    if(len(list)>0): return list[0]
+    return None
 
 #根据用户id查询所有聊天用户是否存在
 def querychatqunexist(chatuser):
-    qunlist = Chatuser.objects.filter(receive_id=chatuser.receive_id,send_id=chatuser.send_id,usertype=3)
+    list = Chatuser.objects.filter(receive_id=chatuser.receive_id,send_id=chatuser.send_id,usertype=3)
+    if len(list)>0:return list[0]
+    return None
 
 #根据用户id查询所有聊天用户条数
 def querychatusernum(receive_id):
     count = Chatuser.objects.filter(receive_id=receive_id).count()
+    return count
 
 #分页查询所有聊天用户,接收者是自己的
 def queryallchatuser(receive_id):
     AllChatuser = Chatuser.objects.order_by('-id').filter(receive_id=receive_id)
+    return AllChatuser
 
 #修改聊天用户信息
 def updatachatuserforuser(chatuser):

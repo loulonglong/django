@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>注册</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="register_fun.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+
+    <div data-role="header" data-position="fixed"  data-theme="a">
+        <h1>注册</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <br><br>
+
+        <form id="file_upload_form" action="" method="post" enctype="multipart/form-data">
+            <input data-role="none" onchange="readFile()" id="pic_file" type="file" name="file" style="display:none">
+            <img src="images/someone_head.png" style="width:30%;margin-left:35%;margin-top: -30px;border-radius:50px" id="register_user_pic"  onclick="javascript:document.getElementById('pic_file').click();">
+        </form>
+
+
+      <!--  <form id="file_upload_form" action="" method="post" enctype="multipart/form-data">
+            <input data-role="none" onchange="readFile()" id="pic_file" type="file" name="file" style="width:30%;height: 150px;position:relative;left:35%;opacity:0;top:-10px;z-index:2"><br>
+            <img src="images/someone_head.png" style="width:30%;position:relative;left:35%;top:-180px;z-index:1;opacity:1" id="register_user_pic">
+        </form>-->
+        <!--账号-->
+        <div data-role="fieldcontain"  style="margin-top: 1%">
+            <label for="register_name">姓名：</label>
+            <input type="text" name="name" id="register_name" value=""  />
+        </div>
+
+        <!--密码-->
+        <div data-role="fieldcontain"  style="margin-top: 1%">
+            <label for="register_password">密码：</label>
+            <input type="text" name="name" id="register_password" value=""  />
+        </div>
+        <!--身份识别码-->
+        <div data-role="fieldcontain"  style="margin-top: 1%">
+            <label for="register_identity">身份识别号：</label>
+            <input type="text" name="name" id="register_identity" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%">
+            <label for="register_phone">手机号：</label>
+            <input type="text" name="name" id="register_phone" value=""  />
+        </div>
+
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+
+            <label  style="line-height: 100%">验证码：</label>
+
+            <div id = "vcode_div">
+                <div  class="ui-btn-inline" style="float: left;width: 65%">
+                    <input type="text" name="name" id="register_vcode"  value=""  />
+                </div>
+                <div  class="ui-btn-inline" style="float: right;width: 25%">
+                    <button onclick="register_vcode_fun()" style="height: 40px" >获取</button>
+                </div>
+            </div>
+            <br><br>
+        </div>
+
+        <br>
+    <div>
+        <a onclick="register_fun()" data-role="button" data-theme="b" style="margin-top: 5%">注册</a>
+        <a onclick="goanother('login.html')" data-role="button" data-theme="a" style="margin-top: 5%">已有账号</a>
+    </div>
+
+    </div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

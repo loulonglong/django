@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>自定义导航栏</title>
+<meta name="Copyright" content="Douco Design." />
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/jquery.tab.js"></script>
+</head>
+<body>
+
+<div id="dcWrap">
+ <div id="dcHead">
+
+  <script type="text/javascript">
+   $(document).ready(function () {
+    $("#dcHead").load("gghead.html", function () {
+
+    })
+   })
+  </script>
+
+
+
+ </div>
+ <!-- dcHead 结束 --> <div id="dcLeft">
+
+ <script type="text/javascript">
+  $(document).ready(function () {
+   $("#dcLeft").load("ggleft.html", function () {
+
+   })
+  })
+ </script>
+
+</div>
+
+
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">管理中心<b>></b><strong>自定义导航栏</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3><a href="addnav.html" class="actionBtn">添加导航</a>自定义导航栏</h3>
+      <script type="text/javascript">
+       $(function(){ $(".idTabs").idTabs(); });
+      </script>
+     <div class="idTabs">   <!--navList-->
+     <ul class="tab">
+      <li><a href="#nav_main" class="selected">主导航</a></li>
+      <li><a href="#nav_dingbu">顶部</a></li>
+      <li><a href="#nav_dibu">底部</a></li>
+     </ul>
+
+         <!--主导航-->
+     <div class="items">
+      <div id="nav_main">
+     <table width="100%" border="0" cellpadding="10" cellspacing="0" class="tableBasic">
+      <tr>
+       <th width="113" align="center">导航名称</th>
+       <th align="left">链接地址</th>
+       <th width="80" align="center">排序</th>
+       <th width="120" align="center">操作</th>
+      </tr>
+            <tr>
+       <td align="center"> 栾鹏的所有日志</td>
+       <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+       <td align="center">10</td>
+       <td align="center"><a href="nav.php?rec=edit&id=1">编辑</a> | <a href="nav.php?rec=del&id=1">删除</a></td>
+      </tr>
+            <tr>
+       <td  align="center"> 刚发的日志</td>
+       <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+       <td align="center">10</td>
+       <td align="center"><a href="nav.php?rec=edit&id=2">编辑</a> | <a href="nav.php?rec=del&id=2">删除</a></td>
+      </tr>
+            <tr>
+       <td  align="center"> 国防科大群组</td>
+       <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+       <td align="center">20</td>
+       <td align="center"><a href="nav.php?rec=edit&id=3">编辑</a> | <a href="nav.php?rec=del&id=3">删除</a></td>
+      </tr>
+            <tr>
+       <td  align="center"> 还没有搞完的</td>
+       <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+       <td align="center">30</td>
+       <td align="center"><a href="nav.php?rec=edit&id=4">编辑</a> | <a href="nav.php?rec=del&id=4">删除</a></td>
+      </tr>
+
+           </table>
+      </div>
+      <!--主导航-->
+
+         <!--顶部导航-->
+         <div id="nav_dingbu">
+          <table width="100%" border="0" cellpadding="10" cellspacing="0" class="tableBasic">
+           <tr>
+            <th width="113" align="center">顶部导航名称</th>
+            <th align="left">顶部链接地址</th>
+            <th width="80" align="center">顶部排序</th>
+            <th width="120" align="center">顶部操作</th>
+           </tr>
+           <tr>
+            <td align="center"> 栾鹏的所有日志</td>
+            <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+            <td align="center">10</td>
+            <td align="center"><a href="nav.php?rec=edit&id=1">编辑</a> | <a href="nav.php?rec=del&id=1">删除</a></td>
+           </tr>
+           <tr>
+            <td  align="center"> 刚发的日志</td>
+            <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+            <td align="center">10</td>
+            <td align="center"><a href="nav.php?rec=edit&id=2">编辑</a> | <a href="nav.php?rec=del&id=2">删除</a></td>
+           </tr>
+           <tr>
+            <td  align="center"> 国防科大群组</td>
+            <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+            <td align="center">20</td>
+            <td align="center"><a href="nav.php?rec=edit&id=3">编辑</a> | <a href="nav.php?rec=del&id=3">删除</a></td>
+           </tr>
+           <tr>
+            <td  align="center"> 还没有搞完的</td>
+            <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+            <td align="center">30</td>
+            <td align="center"><a href="nav.php?rec=edit&id=4">编辑</a> | <a href="nav.php?rec=del&id=4">删除</a></td>
+           </tr>
+
+          </table>
+         </div>
+      <!--顶部导航-->
+
+      <!--底部导航-->
+      <div id="nav_dibu">
+       <table width="100%" border="0" cellpadding="10" cellspacing="0" class="tableBasic">
+        <tr>
+         <th width="113" align="center">底部导航名称</th>
+         <th align="left">底部链接地址</th>
+         <th width="80" align="center">底部排序</th>
+         <th width="120" align="center">底部操作</th>
+        </tr>
+        <tr>
+         <td align="center"> 栾鹏的所有日志</td>
+         <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+         <td align="center">10</td>
+         <td align="center"><a href="nav.php?rec=edit&id=1">编辑</a> | <a href="nav.php?rec=del&id=1">删除</a></td>
+        </tr>
+        <tr>
+         <td  align="center"> 刚发的日志</td>
+         <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+         <td align="center">10</td>
+         <td align="center"><a href="nav.php?rec=edit&id=2">编辑</a> | <a href="nav.php?rec=del&id=2">删除</a></td>
+        </tr>
+        <tr>
+         <td  align="center"> 国防科大群组</td>
+         <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+         <td align="center">20</td>
+         <td align="center"><a href="nav.php?rec=edit&id=3">编辑</a> | <a href="nav.php?rec=del&id=3">删除</a></td>
+        </tr>
+        <tr>
+         <td  align="center"> 还没有搞完的</td>
+         <td><a href="http://www.weiqing.com/page.php?id=3">http://www.weiqing.com/page.php?id=3</a></td>
+         <td align="center">30</td>
+         <td align="center"><a href="nav.php?rec=edit&id=4">编辑</a> | <a href="nav.php?rec=del&id=4">删除</a></td>
+        </tr>
+
+       </table>
+      </div>
+      <!--底部导航-->
+    </div>
+               </div>
+ </div>
+ <div class="clear"></div>
+<div id="dcFooter">
+ <div id="footer">
+  <div class="line"></div>
+  <ul>
+   版权所有  2013-2016 拓扑网络科技有限公司，并保留所有权利。
+  </ul>
+ </div>
+</div><!-- dcFooter 结束 -->
+<div class="clear"></div> </div>
+</body>
+</html>

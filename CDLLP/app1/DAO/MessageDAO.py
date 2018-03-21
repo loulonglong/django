@@ -14,8 +14,8 @@ def queryliuyannum(receive_id):
     return count
 
 #分页查询留言
-def queryAllliuyan(receive_id,messagetype,start,pagesize):
-    list = Message.objects.order_by('-id').filter(receive_id=receive_id,messagetype=messagetype)[start:start+pagesize]
+def queryAllliuyan(page):
+    list = Message.objects.order_by('-id').filter(receive_id=page.receive_id,messagetype=page.messagetype)[page.start:page.start+page.pagesize]
     return list
 
 #查询三天
@@ -26,7 +26,9 @@ def queryMessageforDate(date_before,date_after):
 #根据id查询消息
 def selectmessageforid(id):
     list = Message.objects.filter(id=id)
-    return list
+    if len(list)>0:return list[0]
+    return None
+
 
 #根据消息修改消息
 def updatemessageformessage(message):

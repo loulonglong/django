@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import logging
+import django.utils.log
+import logging.handlers
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +35,21 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'app1',
+    'userapp',
+    'chatapp',
+    'commentapp',
+    'diaryapp',
+    'diarydealapp',
+    'feedbackapp',
+    'moreapp',
+    'mycaidanapp',
+    'qunapp',
+    'tongzhiapp',
+    'versionapp',
+    'webapp',
+    'wechat',
+    'piaoquan',
+    'jiekou',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,11 +69,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'CDLLP.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'CDLLP/templates'),os.path.join(BASE_DIR, 'piaoquan/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,6 +102,68 @@ DATABASES = {
     }
 }
 
+
+LOGGING = {
+    'version': 1,#指明dictConnfig的版本
+    'disable_existing_loggers': False,# 设置True将禁用所有的已经存在的日志配置
+    'formatters': {#格式器
+        'verbose': {#详细
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {#简单
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+     'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {#处理器，在这里定义了三个处理器
+        # 'null': {#Null处理器，所有高于（包括）debug的消息会被传到/dev/null
+        #     'level':'DEBUG',
+        #     'class':'django.utils.log.NullHandler',
+        # },
+        'console':{#流处理器，所有的高于（包括）debug的消息会被传到stderr，使用的是simple格式器
+            'level':'WARNING',
+            'class':'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'mail_admins': {# 邮件处理器，所有高于（包括）而error的消息会被发送给站点管理员，使用的是special格式器
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'filters': ['require_debug_false']
+        },
+        'file_handler': {# 文件处理器，所有高于（包括）而error的消息会被发送给站点管理员，使用的是special格式器
+            'level': 'NOTSET',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'when':'W0',   # 日志文件每周第一天翻转
+            'filename':'log.lp',   #  日志文件的存储地址
+            'backupCount':500,   # 最多可以保存500个文件
+            'formatter':'verbose'
+        }
+    },
+    'loggers': { # 定义了三个记录器
+        'django': { # django记录器是捕捉所有消息的记录器，没有消息是直接发往django记录器的。使用null处理器，所有高于（包括）info的消息会被发往null处理器，向父层次传递信息
+            'handlers':['console','file_handler'],
+            'propagate': False,
+            'level':'NOTSET',
+        },
+        'django.request': {#所有高于（包括）error的消息会被发往mail_admins处理器，消息不向父层次发送
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        # 'myproject.custom': {# 所有高于（包括）info的消息同时会被发往console和mail_admins处理器，使用special过滤器
+        #     'handlers': ['console', 'mail_admins'],
+        #     'level': 'INFO',
+        #     'filters': ['special']
+        # }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -119,7 +198,17 @@ USE_L10N = False
 USE_TZ = False
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+#静态文件(html,js,css)网址的前缀
+#STATIC_URL = '/'   #  这个是用户输入的网址。将用户输入的网址和本地文件路径相互对应起来    默认为'/static/'表示只有网址中为/static/后面才能对应到本地文件路径
+#本地静态文件的路径
+STATIC_URL = '/static/'   #  这个是用户输入的网址。将用户输入的网址和本地文件路径相互对应起来    默认为'/static/'表示只有网址中为/static/后面才能对应到本地文件路径
+STATIC_URL1 = 'static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "html"),#app共有的静态文件，比如：jqurey.js   这个是本地文件路径的网址。
+    # '/path/to/others/static/',#其他静态文件的路径
+)
+
+
+
+

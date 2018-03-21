@@ -14,8 +14,8 @@ def deluserqunforid(id):
     Userqun.objects.filter(id=id).delete()
 
 #删除用户群关系1
-def deluserqunforuserqun(userid,qunid):
-    Userqun.objects.filter(userid=userid,qunid=qunid).delete()
+def deluserqunforuserqun(userqun):
+    Userqun.objects.filter(userid=userqun.userid,qunid=userqun.qunid).delete()
 
 #删除用户群关系1
 def deluserqunforqunid(qunid):
@@ -24,12 +24,14 @@ def deluserqunforqunid(qunid):
 #根据关系id获取用户群信息
 def getuserqunInfoid(id):
     list = Userqun.objects.filter(id=id)
-    return list
+    if len(list)>0:return list[0]
+    return None
 
 #根据用户id和群id获取用户群关系
-def getuserqunInfouserqun(userid,qunid):
-    list = Userqun.objects.filter(userid=userid,qunid=qunid)
-    return list
+def getuserqunInfouserqun(userqun):
+    list = Userqun.objects.filter(userid=userqun.userid,qunid=userqun.qunid)
+    if len(list)>0:return list[0]
+    return None
 
 #根据群id查询用户数目
 def getusernumInfoqunid(qunid):
@@ -37,8 +39,8 @@ def getusernumInfoqunid(qunid):
     return count
 
 #根据群id分页查询用户
-def getuserInfoqunid(qunid,start,pagesize):
-    list = Userqun.objects.order_by('-id').filter(qunid=qunid)[start:start+pagesize]
+def getuserInfoqunid(page):
+    list = Userqun.objects.order_by('-id').filter(qunid=page.qunid)[page.start:page.start+page.pagesize]
     return list
 
 #根据群id查询所有用户
@@ -52,6 +54,7 @@ def getqunInfouserid(userid):
     return list
 
 #查找群主
-def getqunzhuInfouserqun(userstate,qunid):
-    list = Userqun.objects.filter(userstate=userstate,qunid=qunid)
-    return list
+def getqunzhuInfouserqun(userqun):
+    list = Userqun.objects.filter(userstate=userqun.userstate,qunid=userqun.qunid)
+    if len(list)>0:return list[0]
+    return None

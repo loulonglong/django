@@ -6,6 +6,7 @@ def addUserDeal(userdeal):
                                  parameter1=userdeal.parameter1,parameter2=userdeal.parameter2,parameter3=userdeal.parameter3,parameter4=userdeal.parameter4,
                                  parameter5=userdeal.parameter5,parameter6=userdeal.parameter6,parameter7=userdeal.parameter7,parameter8=userdeal.parameter8,
                                  parameter9=userdeal.parameter9,parameter10=userdeal.parameter10).id
+    return id
 
 #删除用户处理行为
 def deleteUserDeal(id):
@@ -14,7 +15,8 @@ def deleteUserDeal(id):
 #根据ID查询日志处理
 def selectUserDealforid(id):
     list = Userdeal.objects.filter(id=id)
-    return list
+    if len(list)>0:return list[0]
+    return None
 
 #根据deal查询日志处理
 def selectUserDealfordeal(userdeal):
@@ -22,13 +24,13 @@ def selectUserDealfordeal(userdeal):
     return list
 
 #分页根据群id查询处理
-def selectuserdealforqunid(qunid,start,pagesize):
-    list = Userdeal.objects.order_by('-id').filter(qunid=qunid)[start:start+pagesize]
+def selectuserdealforqunid(page):
+    list = Userdeal.objects.order_by('-id').filter(qunid=page.qunid)[page.start:page.start+page.pagesize]
     return list
 
 #根据用户id查询
-def selectuserdealforuserid(userid,start,pagesize):
-    list = Userdeal.objects.order_by('-id').filter(userid=userid)[start:start+pagesize]
+def selectuserdealforuserid(page):
+    list = Userdeal.objects.order_by('-id').filter(userid=page.userid)[page.start:page.start+page.pagesize]
     return list
 
 #更新日记处理

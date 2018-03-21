@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<head>
+<title>图片墙</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="css/bootstrap.css">
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<script>
+        (function () {
+          var js;
+          if (typeof JSON !== 'undefined' && 'querySelector' in document && 'addEventListener' in window) {
+			  js = 'js/jquery.min.js';
+		  } else {
+			  js = 'js/jquery.min.js';
+          }
+          document.write('<script src="' + js + '"><\/script>');
+        }());
+ </script>
+	<script type="text/javascript" src="js/global.js"></script>
+	<script type="text/javascript" src="js/jquery.tab.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/screenfull.js"></script>
+
+	<script src="js/jquery.form.min.js"></script>
+	<script src="sendpost.js"></script>
+	<script src="gallery_fun.js"></script>
+		<script>
+		$(function () {
+			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+			if (!screenfull.enabled) {
+				return false;
+			}
+
+			
+
+			$('#toggle').click(function () {
+				screenfull.toggle($('#container')[0]);
+			});	
+		});
+		</script>
+		
+</head>
+<body class="dashboard-page" onload="getpuseric()">
+
+<div id="dcWrap">
+<div id="dcHead">
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#dcHead").load("gghead.html", function () {
+
+			})
+		})
+	</script>
+
+
+
+</div>
+	<!-- dcHead 结束 --> <div id="dcLeft">
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#dcLeft").load("ggleft.html", function () {
+
+			})
+		})
+	</script>
+
+</div>
+
+
+	<div id="dcMain">
+	<section class="wrapper scrollable">
+
+
+		<div class="main-grid">
+			<div class="agile-grids">	
+				<!-- gallery -->
+				<div class="gallery-grids">
+						<div class="show-reel" id="allimg">
+							<!--<div class="col-md-3 agile-gallery-grid">
+								<div class="agile-gallery">
+									<a href="images/2.jpg" class="lsb-preview" data-lsb-group="header">
+										<img src="images/2.jpg" alt="" />
+										<div class="agileits-caption">
+											<h4>Consectetur</h4>
+											<p>Sed ultricies non sem sit amet laoreet. Ut semper erat erat.</p>
+										</div>
+									</a>
+								</div>
+							</div>-->
+
+
+
+
+
+						</div>
+						<script>
+							$(window).load(function() {
+							  $.fn.lightspeedBox();
+							});
+
+						</script>
+				</div>
+			<!-- //gallery -->
+
+			</div>
+		</div>
+
+	</section>
+</div>
+	<div class="clear"></div>
+	<div id="dcFooter">
+		<div id="footer">
+			<div class="line"></div>
+			<ul>
+				版权所有  2013-2016 拓扑网络科技有限公司，并保留所有权利。
+			</ul>
+		</div>
+	</div><!-- dcFooter 结束 -->
+	<!-- //gallery -->
+	</div>
+<script src="js/bootstrap.js"></script>
+<script src="js/proton.js"></script>
+<!-- gallery -->
+<link rel="stylesheet" href="css/lsb.css">
+<script src="js/lsb.js"></script>
+</body>
+</html>

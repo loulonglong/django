@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>拓扑软件</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="myqundiary_fun.js"></script>
+    <style>
+        body,h1,h2,h3,h4,h5,h6,p,ul,li,dl,dt,dd{padding:0;margin:0;font-size:12px;font-family:Arial,Verdana, Helvetica, sans-serif;word-break:break-all;word-wrap:break-word;}
+        li{list-style:none;}img{border:none;}em{font-style:normal;}
+        a{color:#555;text-decoration:none;outline:none;blr:this.onFocus=this.blur();}
+        a:hover{color:#000;text-decoration:underline;}
+        .clear{height:0;overflow:hidden;clear:both;}
+        .play_content{
+            padding:0px;
+            overflow:hidden;
+            width:98%;
+            margin:auto;
+        }
+        .play{width:100%;height:230px;border:#ccc 0px solid; text-align:center; margin:auto;overflow:hidden;position:absolute;}
+        .textbg{margin-top:200px;z-index:1;filter:alpha(opacity=40);opacity:0.4;width:100%;height:30px;position:absolute;background:#000;}
+        .text{margin-top:200px;z-index:2;padding-left:10px;font-size:14px;font-weight:bold;width:40%;color:#fff;line-height:30px; overflow:hidden;position:absolute;cursor:pointer;}
+        .num{margin:205px 1% 0 55%;z-index:3;width:45%; text-align:right;position:absolute;height:25px;float:right;}
+        .num a{margin:0 2px;width:20px;height:20px;font-size:14px; font-weight:bold;line-height:20px;cursor:pointer;color:#000;padding:0 5px;background:#D7D6D7;text-align:center}
+        .num a.on{background:#FFD116;color:#A8471C;}
+        .num a.on2{background:#D7D6D7;color:#000;}
+        .img_content img{width:100%;height:230px;}
+    </style>
+</head>
+<body onload="getalldiaryinf()">
+
+<div data-role="page">
+
+    <div data-role="header" data-position="fixed" style="height: 200px;margin-top: -2px" id="qunheader" qunid="0">
+        <div class="play">
+        <ul>
+            <li class="textbg"></li>
+            <li class="text"></li>
+            <li class="num" ><a>1</a><a>2</a><a>3</a></li>
+            <li class="img_content">
+                <a href="javascript:void(0);" ><img src="images/wall1.jpg" alt="111111111111111" /></a>
+                <a href="javascript:void(0);" ><img src="images/wall2.jpg" alt="222222222222222" /></a>
+                <a href="javascript:void(0);" ><img src="images/wall3.jpg" alt="333333333333333" /></a>
+            </li>
+        </ul>
+        </div>
+
+    </div>
+
+    <div data-role="navbar" style="background-color: #e8e8e8;margin-top: 28px">
+        <ul>
+            <li  id="type1show"><a id="type1" style="background-color: #e8e8e8;border: none;color: green;font-size: 15px" onclick="goto_type_html('1')">xx</a></li>
+            <li  id="type2show"><a id="type2" style="background-color: #e8e8e8;border: none;color: black;font-size: 15px" onclick="goto_type_html('2')">xx</a></li>
+            <li  id="type3show"><a id="type3" style="background-color: #e8e8e8;border: none;color: black;font-size: 15px" onclick="goto_type_html('3')">xx</a></li>
+            <li  id="type4show"><a id="type4" style="background-color: #e8e8e8;border: none;color: black;font-size: 15px" onclick="goto_type_html('4')">xx</a></li>
+
+        </ul>
+    </div>
+
+    <div role="main" class="ui-content"  style="margin-top: 0px" >
+
+        <ul data-role="listview"  data-inset="true" id="alldiary" diarytype="0">
+
+        </ul>
+
+        <ul data-role="listview" data-inset="true">
+             <li data-icon="false">
+                 <a id="load_more" onclick="getalldiaryinf()">
+                     <p>加载更多...</p>
+                 </a>
+             </li>
+
+        </ul>
+
+    </div><!-- /content -->
+
+
+
+</div><!-- /page -->
+
+</body>
+</html>
+
+

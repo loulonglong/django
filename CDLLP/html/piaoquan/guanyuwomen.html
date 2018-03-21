@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>关于我们</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="sendpost.js"></script>
+</head>
+<body onload="getmydiaryinf()">
+
+<div data-role="page">
+
+    <div role="main" class="ui-content"  style="background-color: transparent" >
+        <div text-align:center; width:400px; height:150px;>
+            <img src="images/qrcode.jpg" style="display:block;margin:0 auto;vertical-align:middle;height:100px;width:100px">
+        </div>
+
+        <p style="font-size: 16px;font-weight: bolder;text-align: center;">橙子权益</p>
+        <p style="font-size: 14px;margin-top: 10px">橙子权益成立于2016年8月，成立之初专注于各种权益的兑换和交易，
+                致力于为广大卡友提供更加丰富的权益交易信息，方便权益的交易和变现。在过去的1年多时间里，
+                橙子权益的诚信务实深得广大粉丝的喜爱，“独乐了不如众乐乐”，自动交易平台在众多卡友的期盼下，
+                顺利推出，现在平台还在试运行阶段，橙子权益急切希望大家能够多多提宝贵意见，完善权益交易机制，
+                推出平台交易更加智能化，交易过程更加透明化。</p>
+        <p style="font-size: 14px">“交易权益为生活添姿添彩”，是橙子票券自始至终的想法，在接下来的时间里，橙子权益一定会更加用心、
+                努力维护好交易平台，为大家提供更好的服务和权益交易价格！！</p>
+        <p style="font-size: 16px;margin-top: 10px;font-weight: bolder;text-align: center;">非常感谢您对橙子权益的支持</p>
+
+    </div><!-- /content -->
+
+ <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="goto_jiaocheng()"  data-icon="home">交易教程</a></li>
+                <li><a  onclick="goto_mydiary()" data-icon="calendar">券码管理</a></li>
+                <li><a href="#" data-icon="user"  class="ui-btn-active ui-state-persist">账户中心</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div><!-- /page -->
+<script type='text/javascript'>
+
+    function goto_mydiary(){
+        window.location= 'mydiary?qunid=999&typeindex=1&userid='+$('#main').attr('userid')
+    }
+    function goto_jiaocheng(){
+        window.location= 'jiaocheng?userid='+$('#main').attr('userid')
+    }
+
+
+
+    </script>
+</body>
+</html>
+
+

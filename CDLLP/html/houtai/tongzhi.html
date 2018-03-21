@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>管理中心 - 系统通知 </title>
+<meta name="Copyright" content="Douco Design." />
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+ <script src="sendpost.js"></script>
+ <script src="js/jquery.form.min.js"></script>
+ <script src="tongzhi_fun.js"></script>
+</head>
+<body   onload="getmessageinf()">
+<div id="dcWrap">
+
+ <div id="dcHead">
+
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $("#dcHead").load("gghead.html", function () {
+
+             })
+         })
+     </script>
+
+
+
+ </div>
+    <!-- dcHead 结束 --> <div id="dcLeft">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#dcLeft").load("ggleft.html", function () {
+
+            })
+        })
+    </script>
+
+
+ </div>
+
+
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">管理中心<b>></b><strong>系统通知</strong> </div>   <div id="manager" class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3>系统通知</h3>
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic" id="allmessage">
+     <tr>
+      <th width="40" align="center">消息id</th>
+      <th width="150" align="left">消息时间</th>
+      <th width="100" align="center">消息连接</th>
+      <th align="left">消息简述</th>
+      <th width="100" align="center">通知类型</th>
+     </tr>
+
+<!--       <tr>
+         <td align="center">12</td>
+         <td>2016-02-26 20:53:17</td>
+         <td align="center"><a href="web/urldiary?diaryid=1">打开</a></td>
+         <td align="left">我的内容修改过了，你看一下</td>
+         <td align="center">视频通知</td>
+       </tr>-->
+
+
+
+         </table>
+    <div class="pager">每页 20 个记录，共 1 页，当前第 1 页 | <a href="" onclick="fanye(1)">第一页</a> <a href="" onclick="fanye(2)">上一页</a> <a href="" onclick="fanye(3)">下一页</a></div>           </div>
+ </div>
+
+<div id="dcFooter">
+ <div id="footer">
+  <div class="line"></div>
+  <ul>
+   版权所有  2013-2016 拓扑网络科技有限公司，并保留所有权利。
+  </ul>
+ </div>
+</div><!-- dcFooter 结束 -->
+
+
+</div>
+</body>
+</html>

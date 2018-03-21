@@ -1,0 +1,97 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>校园知道</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="diary_detail_fun.js"></script>
+</head>
+<style>
+    .wrap1{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    }
+    .wrap {
+    white-space: normal !important;
+    }
+</style>
+<body onload="diary_detail_init()">
+
+<div data-role="page" style="background-color: #ffffff" >
+    <div role="main" class="ui-content" style="background-color: #ffffff;margin-left: -20px;margin-right: -20px;margin-top: -30px" >
+        <ul data-role="listview" data-inset="true" data-shadow='false' style="background-color: #0e8f9f" data-corners='false' id="diary" diaryid="<%=request.getParameter("diaryid")%>">
+        <li data-icon="false"  style="border: none;border-bottom: solid;border-bottom-width: thin;border-bottom-color: #e3e2e2">
+            <p  class="wrap" style='color:#1888df;font-size: 25px' id="diary_title"></p>
+            <p class="wrap"  style="font-size: 15px" id="diary_content"></p>
+            <div class="ui-grid-b" id="alldiaryimg" style="margin-top: 2%">
+                <div id="img1_div" class="ui-block-a">
+                    <img id="pic1_path" src="images/huanchong.gif" style="width: 90%;height: 90%;display: none" onclick="goto_img1_path(this)">
+                </div>
+                <div id="img2_div" class="ui-block-b">
+                    <img id="pic2_path" src="images/huanchong.gif" style="width: 90%;height: 90%;display: none" onclick="goto_img2_path(this)">
+                </div>
+                <div id="img3_div" class="ui-block-c">
+                    <img id="pic3_path" src="images/huanchong.gif" style="width: 90%;height: 90%;display: none" onclick="goto_img3_path(this)">
+                </div>
+            </div>
+
+            <p style='color:#a1a8ae' id="diary_time"></p>
+
+        </li>
+        </ul>
+
+
+        <ul data-role="listview" data-inset="true" data-shadow='false' data-corners='false' id="comment"  style="margin-top: -15px">
+            <li data-icon="false"  style="border: none;border-bottom: solid;border-bottom-width: thin;border-bottom-color: #e3e2e2">
+                <p class="wrap"  style="font-size: 15px">UNIX是一个强大的系统，MAC系统和Linux都是unix的翻版</p>
+                <div class="ui-btn-inline" style="border: none">
+                    <p style='color:#a1a8ae'>2016-12-25 15:13</p>
+                </div>
+                <div class="ui-btn-inline" style="border: none;margin-left: 35%">
+                    <span style="margin-right: 20px;border-width:0px;border-style:solid;line-height:1.6em;font-size: 15px">赞12</span>
+                    <span style="border-width:0px;border-style:solid;line-height:1.6em;font-size: 15px">怼12</span>
+                </div>
+            </li>
+            <li data-icon="false"  style="border: none;border-bottom: solid;border-bottom-width: thin;border-bottom-color: #e3e2e2">
+                <p class="wrap"  style="font-size: 15px">中国人自己也有系统的</p>
+              <!--  <a onclick='addcomment(this)' commentid="" class='ui-btn' style='background-color: #ffffff'>  </a>-->
+                <div class="ui-btn-inline" style="border: none">
+                    <p style='color:#a1a8ae'>2016-12-25 15:13</p>
+                </div>
+                <div class="ui-btn-inline" style="border: none;margin-left: 35%">
+                    <span style="margin-right: 20px;border-width:0px;border-style:solid;line-height:1.6em;font-size: 15px">赞12</span>
+                    <span style="border-width:0px;border-style:solid;line-height:1.6em;font-size: 15px">怼12</span>
+                </div>
+            </li>
+            <li data-icon="false"  style="border: none;border-bottom: solid;border-bottom-width: thin;border-bottom-color: #e3e2e2">
+                <p class="wrap" style="font-size: 15px">手机系统算不算，我是米粉，我就自己开发系统，开发平台上有很多系统，可以自己安装下载的，你可以去试一下。就是改改代码编译就行手机系统算不算，我是米粉，我就自己开发系统，开发平台上有很多系统，可以自己安装下载的，你可以去试一下。就是改改代码编译就行</p>
+               <div class="ui-btn-inline" style="border: none">
+                    <p style='color:#a1a8ae'>2016-12-25 15:13</p>
+               </div>
+                <div class="ui-btn-inline" style="border: none;margin-left: 35%">
+                     <span style="margin-right: 20px;border-width:0px;border-style:solid;line-height:1.6em;font-size: 15px">赞12</span>
+                      <span style="border-width:0px;border-style:solid;line-height:1.6em;font-size: 15px">怼12</span>
+                </div>
+            </li>
+        </ul>
+
+    </div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>校园知道</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="alldiary_fun.js"></script>
+
+</head>
+<body onload="init()">
+<img src="http://www.525heart.com/deal/images/tubiao.jpg" style="visibility:hidden;width: 0;height: 0">  <!--需要大于300*300  且只能是jpg  gif格式-->
+
+<div data-role="page" style="background-color: #f4f4f4">
+
+<!--  <div data-role="header" data-position="fixed">
+        <h1>宝贝列表</h1>
+    </div>-->
+
+    <div role="main" class="ui-content"  style="margin-top: -28px;margin-left: -20px;margin-right: -20px;border: none;background-color: #f4f4f4" >
+
+        <ul data-role="listview" data-filter="true" data-filter-placeholder="有问有答" data-inset="true" id="alldiary" qunid="" style="margin-top: -1px;margin-left: -10px;margin-right: -10px">
+
+          <!--  <li>
+                <a diaryindex="0" onclick="goto_diarydetail_show(this)">
+                    <h2>湖南小天鹅饮食有限公司</h2>
+                    <h6>合同号123456</h6>
+                    <span class="ui-li-count" style="color: #00a78e">有图</span>
+                </a>
+            </li>-->
+        </ul>
+
+        <ul data-role="listview" data-inset="true"  style="margin-left: -10px;margin-right: -10px;border: none;background-color: #ffffff">
+             <li data-icon="false" style="border: none;background-color: #ffffff">
+                 <a id="load_more" onclick="getalldiaryinf()">
+                     <p id="getmore" style="color:#a1a8ae">加载更多...</p>
+                 </a>
+             </li>
+
+        </ul>
+
+        <div style="text-align: center">
+            <img src="images/qrcode1.jpg" style="width: 100%;margin-top: 10px">
+        </div>
+
+    </div><!-- /content -->
+
+    <div data-role="footer" data-position="fixed" class="ui-btn-inline"  style="float:right;margin-left: 70%;margin-bottom:20px;border: none;background-color:transparent;width: 100px;height: 100px" >
+        <img src="images/fabiao.png" onclick="gotofabiao()" style="width: 70px;height: 70px">  <!--需要大于300*300  且只能是jpg  gif格式-->
+    </div>
+
+</div><!-- /page -->
+</body>
+</html>
+
+

@@ -1,0 +1,144 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>用户列表</title>
+    <meta name="Copyright" content="Douco Design." />
+    <link href="css/public.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/global.js"></script>
+    <script type="text/javascript" src="js/jquery.autotextarea.js"></script>
+    <script src="js/jquery.form.min.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="myqunuserlist_fun.js"></script>
+</head>
+<body  onload="init()">
+<div id="dcWrap">
+    <div id="dcHead">
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#dcHead").load("gghead.html", function () {
+
+                })
+            })
+        </script>
+
+
+
+    </div>
+    <!-- dcHead 结束 --> <div id="dcLeft">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#dcLeft").load("ggleft.html", function () {
+
+            })
+        })
+    </script>
+
+</div>
+    <div id="dcMain">
+        <!-- 当前位置 -->
+        <div id="urHere">管理中心<b>></b><strong>用户列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="addusergroup.html" class="actionBtn add">添加分组</a>用户列表</h3>
+        <div class="filter">
+
+                <select name="cat_id">
+                    <option value="0">不筛选</option>
+                    <option value="1"> 按照标记筛选 </option>
+                    <option value="2"> 按照处理筛选 </option>
+                    <option value="3"> 按照群组筛选 </option>
+                </select>
+                <select name="filter_item">
+                    <option value="0">未分组</option>
+                    <option value="1"> 分组1 </option>
+                    <option value="2"> 分组2 </option>
+                    <option value="3"> 分组3 </option>
+                    <option value="4"> 分组4 </option>
+                </select>
+                <input name="submit" class="btnGray" type="submit" value="筛选" />
+
+
+        </div>
+        <div id="list">
+
+                <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic" id="alluser">
+                    <tr>
+                        <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
+                        <th width="40" align="center">用户id</th>
+                        <th width="120" align="center">头像</th>
+                        <th width="80" align="center">身份</th>
+                        <th align="center">用户名称</th>
+                        <th width="80" align="center">用户手机</th>
+                        <th width="80" align="center">用户邮箱</th>
+                        <th width="40" align="center">收藏数</th>
+                        <th width="40" align="center">点赞数</th>
+                        <th width="40" align="center">推荐数</th>
+                        <th width="40" align="center">评论数</th>
+                        <th width="80" align="center">操作</th>
+                    </tr>
+
+                    <!--     <tr>
+                         <td align="center"><input type="checkbox" name="checkbox[]" value="1" /></td>
+                         <td align="center">15</td>
+                         <td>
+                             <a href="#"> <img width="120px" src="images/1.png" alt=""></a></td>
+                         <td align="center">未审核</td>
+                         <td align="center">栾鹏</td>
+                         <td align="center">管理员</td>
+                         <td align="center">18158208197</td>
+                         <td align="center">825485697@qq.com</td>
+                         <td align="center">7</td>
+                         <td align="center">7</td>
+                         <td align="center">7</td>
+                         <td align="center">7</td>
+                       </tr>
+                 -->
+
+
+
+                </table>
+                <div class="action">
+                    <select name="action" onchange="douAction()">
+                        <option value="0">请选择...</option>
+                        <option value="del_all">删除用户</option>
+                        <option value="category_move">标志为</option>
+                    </select>
+                    <select name="new_cat_id" style="display:none">
+                        <option value="0">未分类</option>
+                        <option value="1"> 分组1 </option>
+                        <option value="2"> 分组2 </option>
+                        <option value="3"> 分组3 </option>
+                        <option value="4"> 分组4 </option>
+                    </select>
+                    <input name="submit" class="btn" type="submit" value="执行" />
+                </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="pager">当前第 1 页    |    <a  href="javascript:void(0);"  onclick="fanye(1)">第一页</a>    <a  href="javascript:void(0);"  onclick="fanye(2)">上一页    </a> <a  href="javascript:void(0);"  onclick="fanye(3)">下一页</a></div>              </div>
+    </div>
+    <div class="clear"></div>
+    <div id="dcFooter">
+        <div id="footer">
+            <div class="line"></div>
+            <ul>
+                版权所有  2013-2016 拓扑网络科技有限公司，并保留所有权利。
+            </ul>
+        </div>
+    </div><!-- dcFooter 结束 -->
+    <div class="clear"></div> </div>
+<script type="text/javascript">
+
+
+    function douAction()
+    {
+        var frm = document.forms['action'];
+        frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
+    }
+
+</script>
+</body>
+</html>

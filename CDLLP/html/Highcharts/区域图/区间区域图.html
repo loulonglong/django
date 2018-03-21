@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script src="../highcharts.js"></script>
+    <script src="../highcharts-more.js"></script>
+    <script src="../data.js"></script>
+</head>
+<body>
+<div id="container" style="width: 100%; height: 100%; margin: 0 auto"></div>
+<script language="JavaScript">
+    $(document).ready(function() {
+        var chart = {
+            type: 'arearange',
+            zoomType: 'x'
+        };
+        var title = {
+            text: 'Temperature variation by day'
+        };
+        var xAxis = {
+            type: 'datetime'
+        };
+        var yAxis = {
+            title: {
+                text: null
+            }
+        };
+        var tooltip = {
+            shared: true,
+            crosshairs: true,
+            valueSuffix: '\xB0C'
+        };
+        var legend = {
+            enabled: false
+        }
+
+        var json = {};
+        json.chart = chart;
+        json.title = title;
+        json.xAxis = xAxis;
+        json.yAxis = yAxis;
+        json.legend = legend;
+
+        $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=range.json&callback=?', function (data) {
+            var series= [{
+                name: 'Temperatures',
+                data: data
+            }
+            ];
+            json.series = series;
+            $('#container').highcharts(json);
+        });
+    });
+</script>
+</body>
+</html>

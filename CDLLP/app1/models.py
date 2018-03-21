@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Chat_Message(models.Model):
-    messagetype = models.IntegerField(default=0)  # 文本类型字段
+    messagetype = models.IntegerField()  # 文本类型字段
     contenttype = models.IntegerField(default=0)
     send_id = models.IntegerField(default=0)
     receive_id = models.IntegerField(default=0)
@@ -53,7 +53,7 @@ class Diary(models.Model):
     time = models.TimeField(auto_now_add=True,null=True)
     date = models.DateField(auto_now_add=True,null=True)
     content = models.TextField(max_length=2000,null=True)
-    imgone = models.CharField(max_length=100,null=True)
+    imgone = models.CharField(max_length=300,null=True)
     imgtwo = models.CharField(max_length=100, null=True)
     imgthree = models.CharField(max_length=100, null=True)
     imgfour = models.CharField(max_length=100, null=True)
@@ -196,7 +196,7 @@ class Qun(models.Model):
     zannum = models.IntegerField(null=True, default=0)
     commentnum = models.IntegerField(null=True, default=0)
     ideal = models.IntegerField(null=True, default=0)
-    gonggao = models.CharField(max_length=200, null=True)
+    gonggao = models.CharField(max_length=2000, null=True)
     type1 = models.CharField(max_length=100, null=True)
     type2 = models.CharField(max_length=100, null=True)
     type3 = models.CharField(max_length=100, null=True)

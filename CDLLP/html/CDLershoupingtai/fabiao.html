@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>发表日志</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="fabiao_fun.js"></script>
+</head>
+<body>
+<div data-role="page">
+    <div data-role="header" data-position="fixed"  data-theme="a">
+        <!-- <a onclick="goanother('setting.html')" data-role="button" class="ui-btn-left" data-theme="b">返回</a>-->
+        <a onclick="fabiaobb()" data-role="button" class="ui-btn-right" data-theme="b" id="fabiao_button">发布</a>
+        <h1>发布宝贝</h1>
+    </div>
+    <div role="main" class="ui-content" >
+        <div data-role="fieldcontain" style="border: none">
+            <!--以下两种方法都可以实现点击输入框时提示消失-->
+            <label>宝贝名称</label>
+            <input id="fabiao_name" type="text" class="ui-grid-solo" placeholder="请输入名称" style="width: 100%;">
+            <!--<input type="text" value="请输入账号" onfocus="this.value=''" onblur="if(this.value=='')this.value='请输入账号'" style="width: 100%;"/>-->
+        </div>
+        <div data-role="fieldcontain" style="border: none">
+            <!--以下两种方法都可以实现点击输入框时提示消失-->
+            <label>入手时间</label>
+            <input id="fabiao_rushoushijian" type="date" class="ui-grid-solo" style="width: 100%;">
+        </div>
+        <div data-role="fieldcontain" style="border: none">
+            <!--以下两种方法都可以实现点击输入框时提示消失-->
+            <label>卖出时间</label>
+            <input id="fabiao_saletime" type="date" class="ui-grid-solo" style="width: 100%;">
+        </div>
+        <div data-role="fieldcontain" style="border: none">
+            <!--以下两种方法都可以实现点击输入框时提示消失-->
+            <label>宝贝单价</label>
+            <input id="fabiao_price" type="number" class="ui-grid-solo" placeholder="请输入一个数字" style="width: 100%;">
+        </div>
+        <div data-role="fieldcontain" style="border: none">
+            <!--以下两种方法都可以实现点击输入框时提示消失-->
+            <label>卖家备注</label>
+            <textarea id="fabiao_beizhu" class="ui-grid-solo" style="width: 100%;"></textarea>
+        </div>
+        <div class="ui-grid-b" id="alldiaryimg" style="margin-top: 2%">
+
+            <div id="img1_div" class="ui-block-a">
+                <form id="file1_upload_form" action="" method="post" enctype="multipart/form-data">
+                    <input data-role="none" onchange="uploadfile1()" id="pic1_file" type="file" name="file" style="display:none;">
+                    <img id="pic1_path" src="images/add.png" style="width: 90%;height: 90%" onclick="$('#pic1_file').click();">
+                </form>
+            </div>
+            <div id="img2_div" class="ui-block-b">
+                <form id="file2_upload_form" action="" method="post" enctype="multipart/form-data">
+                    <input data-role="none" onchange="uploadfile2()" id="pic2_file" type="file" name="file" style="display:none">
+                    <img id="pic2_path" src="images/add.png" style="width: 90%;height: 90%" onclick="$('#pic2_file').click();">
+                </form>
+            </div>
+            <div id="img3_div" class="ui-block-c">
+                <form id="file3_upload_form" action="" method="post" enctype="multipart/form-data">
+                    <input data-role="none" onchange="uploadfile3()" id="pic3_file" type="file" name="file" style="display:none">
+                    <img id="pic3_path" src="images/add.png" style="width: 90%;height: 90%" onclick="$('#pic3_file').click();">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>反馈</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="change_user_inf.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+
+    <!--<div data-role="header" data-position="fixed"  data-theme="a">
+        <h1>反馈</h1>
+        <a onclick="goanother('setting.html')" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+    </div>-->
+
+    <div role="main" class="ui-content">
+        <label style="margin-top: 5%">名称（选填）：</label>
+        <input type="text" name="name" id="feedback_name" value=""  />
+        <label style="margin-top: 5%">联系方式（选填）：</label>
+        <input type="text" name="name" id="feedback_phone" value=""  />
+
+        <label style="margin-top: 5%">建议（必填）：</label>
+        <input type="text" name="name" id="feedback_content" value=""  />
+
+
+        <a onclick="feedback_fun()" data-role="button" data-theme="b" style="margin-top: 5%">提交</a>
+
+
+    </div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>个人信息</title>
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script src="change_user_inf.js"></script>
+</head> 
+<body onload="set_user_inf()">
+
+<div data-role="page">
+
+    <!--<div data-role="header" data-position="fixed"  data-theme="a">
+      <h1>个人信息</h1>
+        <a onclick="goanother('setting.html')" data-role="button" class="ui-btn-left" data-theme="b">返回</a>
+        <a onclick="change_inf()" data-role="button" class="ui-btn-right" data-theme="b">保存</a>
+    </div>&lt;!&ndash; /header &ndash;&gt;-->
+
+    <div role="main" class="ui-content">
+
+        <br><br>
+       <div style="text-align: center">
+        <form id="file_upload_form" action="" method="post" enctype="multipart/form-data">
+            <input data-role="none" onchange="readFile();" id="pic_file" type="file" name="file" style="display:none">
+            <img src="images/someone_head.png" style="width:100px;height: 100px;margin-top: -30px;border-radius:550px" id="change_user_pic"  onclick="javascript:document.getElementById('pic_file').click();">
+            <label>点击添加方形头像</label>
+        </form>
+       </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_name">姓名：</label>
+            <input type="text" placeholder="必填" name="name" id="change_name" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_phone">手机号码：</label>
+            <input type="text" placeholder="必填" name="name" id="change_phone" value=""  />
+        </div>
+        <!--身份识别码-->
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_address_province">通讯地址（省）：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_address_province" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_address_shi">通讯地址（市）：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_address_shi" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_address_qu">通讯地址（区县）：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_address_qu" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_address_road">通讯地址（街道）：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_address_road" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_zip_code">邮政编码：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_zip_code" value=""  />
+        </div>
+
+
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_qq">QQ号码：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_qq" value=""  />
+        </div>
+        <!--身份识别码-->
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_email">电子邮件：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_email" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_wechat">微信号码：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_wechat" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_filed">从事行业：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_filed" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_company">公司/单位：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_company" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_section">公司部门：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_section" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_post">职位：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_post" value=""  />
+        </div>
+
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_url">个人网站：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_url" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%">
+            <label for="change_education">最高学历：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_education" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_benke_schools">本科学校：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_benke_schools" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_shuoshi_schools">硕士学校：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_shuoshi_schools" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_boshi_schools">博士学校：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_boshi_schools" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_skill">个人特长：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_skill" value=""  />
+        </div>
+        <div data-role="fieldcontain"  style="margin-top: 1%;border: none">
+            <label for="change_jianli">简历：</label>
+            <input type="text"  placeholder="选填" name="name" id="change_jianli" value=""  />
+        </div>
+
+        <a onclick="change_inf()" data-role="button" data-theme="b" style="margin-top: 5%" id="change_button">保存</a>
+  </div><!-- /content -->
+
+
+</div><!-- /page -->
+
+</body>
+</html>

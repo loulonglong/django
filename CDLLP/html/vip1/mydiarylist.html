@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>管理中心 - 文章列表 </title>
+<meta name="Copyright" content="Douco Design." />
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/jquery.autotextarea.js"></script>
+    <script src="js/jquery.form.min.js"></script>
+    <script src="sendpost.js"></script>
+    <script src="mydiarylist_fun.js"></script>
+</head>
+<body onload="init()">
+<div id="dcWrap">
+ <div id="dcHead">
+
+
+     <div id="head">
+         <div class="logo"><a href="index.html"><img src="images/dclogo.gif" alt="logo"></a></div>
+         <div class="nav">
+             <ul>
+                 <li class="M"><a href="JavaScript:void(0);" class="topAdd">新建</a>
+                     <div class="drop mTopad"><a href="product.php?rec=add">商品</a> <a href="article.php?rec=add">文章</a> <a href="nav.php?rec=add">自定义导航</a> <a href="show.html">首页幻灯</a> <a href="page.php?rec=add">单页面</a> <a href="manager.php?rec=add">管理员</a> <a href="link.html"></a> </div>
+                 </li>
+                 <li><a href="gallery.html" target="_blank">图片空间</a></li>
+                 <li><a href="index.php?rec=clear_cache">清除缓存</a></li>
+                 <li><a href="http://www.mycodes.net" target="_blank">帮助</a></li>
+                 <li class="noRight"><a href="module.html">DouPHP+</a></li>
+             </ul>
+             <ul class="navRight">
+                 <li class="M noLeft"><a href="JavaScript:void(0);">您好，admin</a>
+                     <div class="drop mUser">
+                         <a href="editmyinfo.html">编辑我的个人资料</a>
+                         <a href="editmypassword.html">修改密码</a>
+                         <a href="update_usertype.html">升级认证</a>
+                     </div>
+                 </li>
+                 <li class="noRight"><a href="login.html">退出</a></li>
+             </ul>
+         </div>
+     </div>
+
+     <!-- dcHead 结束 -->
+
+
+ </div>
+<!-- dcHead 结束 --> <div id="dcLeft">
+
+    <div id="menu">
+
+        <ul>
+            <li><a href="myqunlist.html"><i class="system"></i><em>栏目列表</em></a></li>
+        </ul>
+        <ul>
+            <li><a href="mydiarylist.html"><i class="article"></i><em>文章列表</em></a></li>
+        </ul>
+        <ul>
+            <li><a href="tongzhi.html"><i class="backup"></i><em>系统消息</em></a></li>
+            <li><a href="liuyan.html"><i class="mobile"></i><em>我的消息</em></a></li>
+        </ul>
+        <ul>
+            <li><a href="system_setting.html"><i class="backup"></i><em>系统设置</em></a></li>
+            <li><a href="backup.html"><i class="theme"></i><em>数据备份</em></a></li>
+        </ul>
+    </div>
+
+
+
+</div>
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">管理中心<b>></b><strong>文章列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="adddiary.html?rec=add" class="actionBtn add">添加文章</a>文章列表</h3>
+    <div class="filter">
+
+        <select id="filter_type" onchange="choose_filter_type(this)">
+            <option value="0">不筛选</option>
+            <option value="1"> 按照群组筛选 </option>
+            <option value="2"> 按照类型筛选 </option>
+        </select>
+        <select id="filter_item"  onchange="choose_qun_type(this)">
+        </select>
+     <input name="keyword" type="text" class="inpMain" value="" size="20" id="keystr" />
+     <input name="submit" class="btnGray" type="submit" onclick="filter_fun()" value="筛选" />
+
+
+    </div>
+        <div id="list">
+
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic" id="alldiary">
+
+<!--
+      <tr>
+          <td align="center"><input type="checkbox" name="checkbox[]" value="1" /></td>
+          <td align="center">1</td>
+          <td><a href="article.php?rec=edit&id=10">基于小卫星接入的浮标卫星通信系统MAC协议的研究</a></td>
+          <td align="center"><a href="article.php?cat_id=1">图文文章</a></td>
+          <td align="center">栾鹏</td>
+          <td align="center">八中一班</td>
+          <td align="center">2013-06-26</td>
+          <td align="center">3</td>
+          <td align="center">3</td>
+          <td align="center">3</td>
+          <td align="center">3</td>
+          <td align="center">
+              <a href="adddiary.html">编辑</a> | <a href="product.php?rec=del&id=15">删除</a>
+          </td>
+      </tr>
+-->
+
+
+
+
+         </table>
+    <div class="action">
+     <select name="action" onchange="douAction()">
+      <option value="0">请选择...</option>
+      <option value="del_all">删除</option>
+      <option value="category_move">标记为</option>
+     </select>
+     <select name="new_cat_id" style="display:none">
+         <option value="0">未分类</option>
+         <option value="0">分组1</option>
+         <option value="0">分组2</option>
+         <option value="0">分组3</option>
+
+                 </select>
+     <input name="submit" class="btn" type="submit" value="执行" />
+    </div>
+
+    </div>
+    <div class="clear"></div>
+    <div class="pager">每页 20 个记录，共 1 页，当前第 1 页 | <a href="" onclick="fanye(1)">第一页</a> <a href="" onclick="fanye(2)">上一页</a> <a href="" onclick="fanye(3)">下一页</a></div>           </div>
+ </div>
+ <div class="clear"></div>
+<div id="dcFooter">
+ <div id="footer">
+  <div class="line"></div>
+  <ul>
+      版权所有  2013-2016 拓扑网络科技有限公司，并保留所有权利。
+  </ul>
+ </div>
+</div><!-- dcFooter 结束 -->
+<div class="clear"></div> </div>
+ <script type="text/javascript">
+ 
+
+ function douAction()
+ {
+     var frm = document.forms['action'];
+
+     frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
+ }
+ 
+ </script>
+</body>
+</html>

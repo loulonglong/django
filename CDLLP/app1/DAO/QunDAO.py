@@ -1,5 +1,6 @@
 from app1.models import Qun
 from app1.models import Userqun
+from django.forms import model_to_dict
 
 #添加群组
 def addquninfoqun(qun):
@@ -16,7 +17,9 @@ def deletequn(id):
 #根据群ID查询群
 def getqunInfoqunid(id):
     list = Qun.objects.filter(id=id)
-    return list
+    if len(list)>0:return list[0]
+    return None
+
 
 #根据省、市、A名称查询群列表
 def getqunInfoAname(qun):
@@ -34,8 +37,10 @@ def getqunInfoaddress(qun):
     return list
 
 #根据省、市、名称、区别点查询群
-def getqunInfoAB(aname,bname,ab):
-    list = Qun.objects.filter(aname=aname,bname=bname,ab=ab)
+def getqunInfoAB(qun):
+    list = Qun.objects.filter(aname=qun.aname,bname=qun.bname,ab=qun.ab)
+    if len(list)>0:
+        return list[0]
 
 #根据代理商省份查询所有货款
 def getallqunInfoa(aname):
@@ -53,19 +58,22 @@ def selectallqunnum():
     return count
 
 #查询所有群组 安照分页
-def selectallqun(start,pagesize):
-    list = Qun.objects.order_by('-id')[start:start+pagesize]
+def selectallqun(page):
+    list = Qun.objects.order_by('-id')[page.start:page.start+page.pagesize]
     return list
 
 #查询某人指定类型的群 安照分页
-def getqunforuserqunuse(qun,userqun,start,pagesize):
-    list = Qun.objects.order_by('-id').filter(qunusetype=qun.qunusetype,id_in=userqun.objects.filter(userid=userqun.userid).values('qunid'))[start:start+pagesize]
+def getqunforuserqunuse(page):
+    list = Qun.objects.order_by('-id').filter(qunusetype=page.qunusetype,id_in=Userqun.objects.filter(userid=page.userid).values('qunid'))[page.start:page.start+page.pagesize]
     return list
 
 #查询指定类型的群 安照分页
-def getqunforqunuse(qunusetype,start,pagesize):
-    list = Qun.objects.order_by('-id').filter(qunusetype=qunusetype)[start:start+pagesize]
+def getqunforqunuse(page):
+    list = Qun.objects.order_by('-id').filter(qunusetype=page.qunusetype)[page.start:page.start+page.pagesize]
+    return list
 
+def selectfilterqun(page):
+    print()
 '''
 <!-- 筛选群组 -->
 	<select id="selectfilterqun" parameterType="com.lp.app.entity.PageForId" resultType="com.lp.app.entity.Qun">
@@ -75,8 +83,8 @@ def getqunforqunuse(qunusetype,start,pagesize):
 '''
 
 #搜索群组
-def selectsousuoqun(qunusetype,keystr1):
-    list = Qun.objects.filter(qunusetype=qunusetype,aname__contains=keystr1)
+def selectsousuoqun(page):
+    list = Qun.objects.filter(qunusetype=page.qunusetype,aname__contains=page.keystr1)
     return list
 
 #修改群信息

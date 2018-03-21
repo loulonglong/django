@@ -12,22 +12,28 @@ def regist(user):
     return id
 
 #用户登录
-def login(phone,password):
-    list = User.objects.filter(phone=phone,password=password)
-    return list
+def login(user):
+    list = User.objects.filter(phone=user.phone,password=user.password)
+    if(len(list)>0):
+        return list[0]
+    else:
+        return None
 
 #根据用户名去查询数据库是否有对应的记录
 def queryuserforphone(phone):
     list = User.objects.filter(phone=phone)
-    return list
+    if (len(list) > 0):
+        return list[0]
+    else:
+        return None
 
 #修改用户密码
-def updateUserPwd(password,id):
-    User.objects.filter(id=id).update(password=password)
+def updateUserPwd(user):
+    User.objects.filter(id=user.id).update(password=user.password)
 
-#修改用户图像
-def updateUserIcon(image,id):
-    User.objects.filter(id=id).update(image=image)
+# 修改用户图像
+def updateUserIcon(user):
+    User.objects.filter(id=user.id).update(image=user.image)
 
 #修改用户资料，用户图像不参加
 def updateUserInfo(user):
@@ -50,20 +56,27 @@ def updateUserInfoImage(user):
 #根据用户id查询用户资料
 def getUserInfoId(id):
     list = User.objects.filter(id=id)
-    return list
+    if (len(list) > 0):
+        return list[0]
+    else:
+        return None
 
 #根据用户身份识别码查询
 def queryUserForidentity(identity):
     list = User.objects.filter(identity=identity)
-    return list
+    if (len(list) > 0):
+        return list[0]
+    else:
+        return None
 
 #查询用户所有群下所有用户
-def queryallqunuser(user,userqun,start,pagesize):
-    list1 = Userqun.objects.filter(userid=userqun.userid,userstate_in=(1,2,3)).values('qunid')
-    list2 = Userqun.objects.filter(qunid_in=list1).values('userid')
-    list = User.objects.order_by('-id').filter(id_in=list2)[start:start+pagesize]
+def queryallqunuser(page):
+    list1 = Userqun.objects.filter(userid=page.userid,userstate__in=(1,2,3)).values('qunid')
+    list2 = Userqun.objects.filter(qunid__in=list1).values('userid')
+    list = User.objects.order_by('-id').filter(id__in=list2)[page.start:page.start+page.pagesize]
     return list
 
 #查询所有用户
-def queryalluser(start,pagesize):
-    list = User.objects.order_by('-id')[start:start+pagesize]
+def queryalluser(page):
+    list = User.objects.order_by('-id')[page.start:page.start+page.pagesize]
+    return list
