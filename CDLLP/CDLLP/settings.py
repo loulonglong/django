@@ -147,12 +147,12 @@ LOGGING = {
         }
     },
     'loggers': { # 定义了三个记录器
-        'django': { # django记录器是捕捉所有消息的记录器，没有消息是直接发往django记录器的。使用null处理器，所有高于（包括）info的消息会被发往null处理器，向父层次传递信息
+        'django1': { # django记录器是捕捉所有消息的记录器，没有消息是直接发往django记录器的。使用null处理器，所有高于（包括）info的消息会被发往null处理器，向父层次传递信息
             'handlers':['console','file_handler'],
             'propagate': False,
             'level':'NOTSET',
         },
-        'django.request': {#所有高于（包括）error的消息会被发往mail_admins处理器，消息不向父层次发送
+        'django1.request': {#所有高于（包括）error的消息会被发往mail_admins处理器，消息不向父层次发送
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': False,
@@ -209,6 +209,7 @@ STATICFILES_DIRS = (
     # '/path/to/others/static/',#其他静态文件的路径
 )
 
+import logging
 
-
+logger = logging.getLogger('django1')
 

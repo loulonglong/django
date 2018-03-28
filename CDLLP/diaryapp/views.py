@@ -7,11 +7,9 @@ from app1.AllBack import PageForId
 import json, datetime, time, os, io, calendar
 from django.http import JsonResponse,HttpResponse
 from django.forms.models import model_to_dict
-from CDLLP.settings import STATICFILES_DIRS,STATIC_URL1
+from CDLLP.settings import STATICFILES_DIRS,STATIC_URL1,logger
 
-import logging
 
-logger = logging.getLogger('django')
 
 # 写日志,针对有图像或者无图片的处理
 def adddiaryimg(request):
